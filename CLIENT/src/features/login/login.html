@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>התחברות - TodoPro</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div id="particle-background"></div>
+  <div class="auth-container">
+    <form id="login-form" class="auth-form">
+      <h2>התחבר ל-TodoPro</h2>
+      <p class="subtitle">צלול לניהול זמן ומשימות בסטייל עתידני!</p>
+      <div class="form-group">
+        <input type="email" id="email" placeholder="אימייל" required>
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" placeholder="סיסמה" required>
+      </div>
+      <div id="error" class="error-msg"></div>
+      <button type="submit" class="btn-primary">התחבר</button>
+    </form>
+  </div>
+
+  <!-- Axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- Particle.js for background -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- הקובץ JS -->
+  <script type="module" src="login.js"></script>
+  <script>
+    particlesJS('particle-background', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: ['#3b82f6', '#10b981', '#ffffff'] },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: 'none', random: true }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' } },
+        modes: { grab: { distance: 200, line_linked: { opacity: 0.7 } }, push: { particles_nb: 4 } }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>

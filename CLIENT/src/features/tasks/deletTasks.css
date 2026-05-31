@@ -1,0 +1,3 @@
+body { font-family: Arial; padding:20px; background:#f4f4f4; }
+button { padding:10px 15px; cursor:pointer; }
+button:hover { opacity:0.8; }

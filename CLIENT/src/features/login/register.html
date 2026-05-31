@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>רישום - TodoPro</title>
+  <link rel="stylesheet" href="register.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!-- כותרת עליונה -->
+  <header class="page-header">
+    <!-- צד שמאל - אייקון חזרה לדף הבית -->
+    <a href="../pages/manager.html" class="back-home" title="חזור לדף הבית">
+      <i class="fa-solid fa-house"></i>
+    </a>
+
+    <!-- צד ימין - פרטי המשתמש -->
+    <div class="user-info">
+      <span id="user-name" class="user-name">שלום, משתמש</span>
+      <img id="profile-img" src="default-avatar.png" alt="תמונת פרופיל" class="profile-img">
+    </div>
+  </header>
+
+  <div id="particle-background"></div>
+  <div class="auth-container">
+    <form id="register-form" class="auth-form">
+      <h2>רישום</h2>
+
+      <!-- שם החברה -->
+      <!-- <div class="form-group">
+        <input type="text" id="companyName" name="companyName" placeholder="שם החברה" required>
+      </div> -->
+
+      <!-- שם מלא -->
+      <div class="form-group">
+        <input type="text" id="name" name="name" placeholder="שם מלא" required>
+      </div>
+
+      <!-- אימייל -->
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="אימייל" required>
+      </div>
+
+      <!-- תפקיד -->
+      <div class="form-group">
+        <select id="role" name="role" required>
+          <option value="Manager">מנהל</option>
+          <option value="TeamLead">ראש צוות</option>
+          <option value="Employee">עובד</option>
+        </select>
+      </div>
+
+      <!-- שדות צוות (מוסתרים לפי הצורך) -->
+      <div class="form-group team-field" style="display: none;">
+        <input type="text" id="teamCode" name="teamCode" placeholder="קוד צוות">
+      </div>
+      <div class="form-group team-field" style="display: none;">
+        <input type="text" id="teamName" name="teamName" placeholder="שם צוות">
+      </div>
+
+      <!-- סיסמה -->
+      <div class="form-group">
+        <input type="password" id="password" name="password" placeholder="סיסמה (מינימום 8 תווים)" required>
+      </div>
+
+      <!-- אישור סיסמה -->
+      <div class="form-group">
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="אשר סיסמה" required>
+      </div>
+
+      <!-- תמונת פרופיל -->
+      <div class="form-group">
+        <label for="profileImage">תמונת פרופיל:</label>
+        <div class="file-upload-wrapper">
+          <input type="file" id="profileImage" name="avatar" accept="image/*">
+          <div class="file-upload-label">
+            <i class="fas fa-upload"></i>
+            <span class="file-upload-text">בחר תמונת פרופיל</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- הודעות שגיאה -->
+      <div id="error" class="error-msg"></div>
+
+      <button type="submit" class="btn-primary"><i class="fas fa-user-plus"></i> הירשם</button>
+      <p>כבר יש לך חשבון? <a href="login.html">התחבר כאן</a></p>
+    </form>
+  </div>
+
+  <!-- Particle.js for background -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particle-background', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: ['#3b82f6', '#10b981', '#ffffff'] },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: 'none', random: true }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' } },
+        modes: { grab: { distance: 200, line_linked: { opacity: 0.7 } }, push: { particles_nb: 4 } }
+      },
+      retina_detect: true
+    });
+  </script>
+  <script type="module" src="register.js"></script>
+</body>
+</html>
