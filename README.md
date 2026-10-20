@@ -1,67 +1,52 @@
-📋 Task Management System
+# 📋 Task Management System
 
-A full-stack, role-based Task and Project Management System built with a Node.js/Express REST API backend, MongoDB (Mongoose) database, and a modular HTML/CSS/JavaScript client bundled with Vite.
+A robust full-stack, role-based Task and Project Management application built with a **Node.js / Express** REST API, **MongoDB (Mongoose)**, and a modular **HTML5 / CSS3 / JavaScript (ES6)** frontend powered by **Vite**.
 
-🚀 Overview & Key Features
+---
 
-Role-Based Access Control (RBAC): Dedicated views and permissions for Managers, Team Leads, and Employees.
+## 🚀 Key Features
 
-Project & Task Lifecycle Management:
+- **Role-Based Access Control (RBAC):** Dedicated views, actions, and permissions tailored for **Managers**, **Team Leads**, and **Employees**.
+- **Project & Task Management:**
+  - Create, view, update, and remove tasks and projects.
+  - Track statuses, deadlines, and project lifecycles.
+  - Assign tasks and projects to specific team members.
+- **Authentication & Security:**
+  - Secure user registration and login workflows.
+  - Stateless authentication via **JSON Web Tokens (JWT)**.
+  - Strong password hashing with **bcrypt**.
+  - Request body & parameter validation using **Joi**.
+- **Media Uploads:**
+  - User profile picture and file attachment handling via **Multer**.
+- **Modern Modular Client:**
+  - Feature-driven modular layout bundled with **Vite**.
+  - Separation of concerns between UI components, styles, and API service layers.
 
-Create, view, update, and delete tasks.
+---
 
-Create and manage project lifecycles.
+## 🛠️ Tech Stack
 
-Assign tasks and projects to team members.
+### Backend (`/SERVER`)
+- **Runtime:** Node.js
+- **Framework:** Express.js
+- **Database & ODM:** MongoDB & Mongoose
+- **Authentication:** `jsonwebtoken`, `bcrypt` / `bcryptjs`
+- **Validation:** `joi`
+- **File Handling:** `multer`
+- **Utilities & Middleware:** `cors`, `dotenv`
 
-Authentication & Security:
+### Frontend (`/CLIENT`)
+- **Build Tool:** Vite
+- **Languages:** HTML5, Modern CSS3, JavaScript (ES6 Modules)
+- **Architecture:** Feature-based modular structure
 
-Secure registration and login workflows.
+---
 
-JSON Web Tokens (JWT) for stateless session handling and protected API routes.
+## 📁 Repository Structure
 
-Password hashing with bcrypt / bcryptjs.
-
-Schema-level data validation via Joi.
-
-Media Uploads:
-
-Profile avatar upload support using multer.
-
-Modular Frontend:
-
-Modern client architecture with Vite.
-
-Decoupled feature modules for login, projects, tasks, and role-based views.
-
-🛠️ Tech Stack
-
-Backend (/SERVER)
-
-Runtime: Node.js
-
-Framework: Express.js
-
-Database & ODM: MongoDB with Mongoose
-
-Authentication: jsonwebtoken & bcrypt
-
-Validation: Joi
-
-File Uploads: Multer
-
-Logging & Utilities: Morgan, Cors, Dotenv
-
-Frontend (/CLIENT)
-
-Bundler / Dev Server: Vite
-
-Core Languages: HTML5, CSS3, JavaScript (ES6 Modules)
-
-Structure: Feature-driven modular layout (Login/Register, Projects, Tasks, Role pages)
-📁 Repository Structure
+```text
 Task-Management-System/
-├── CLIENT/                     # Client application (Vite-based)
+├── CLIENT/
 │   ├── index.html              # Frontend entry point
 │   ├── package.json            # Client scripts & dependencies
 │   ├── public/                 # Static assets
@@ -69,99 +54,26 @@ Task-Management-System/
 │       └── features/
 │           ├── login/          # Auth forms (login, register) & userService
 │           ├── pages/          # Role views: manager, teamlead, employee
-│           ├── projects/       # Projects UI & services
-│           └── tasks/          # Tasks UI, modal dialogs & services
+│           ├── projects/       # Projects UI, modals & services
+│           └── tasks/          # Tasks UI, modals & services
 │
-└── SERVER/                     # Node.js REST API
+└── SERVER/
     ├── config/
     │   └── db.js               # MongoDB connection logic
-    ├── controllers/            # Route business logic (auth, tasks, projects, users)
-    ├── middlewares/            # Auth, role check, error handler, file upload, Joi validation
+    ├── controllers/            # Route controllers (auth, projects, tasks, users)
+    ├── middlewares/            # Auth, RBAC, error handling, validation, multer
     ├── models/                 # Mongoose schemas (User, Task, Project)
-    ├── routers/                # Express API route declarations
-    ├── uploads/                # Stored media files (avatars, attachments)
-    ├── .env                    # Environment variables (secret/config)
+    ├── createAdmin.js          # Admin seed script
     ├── index.js                # Server entry point
-    └── package.json            # Backend scripts & dependencies
-⚙️ Getting Started
-
-Prerequisites
-
-Node.js (v16+ recommended)
-
-MongoDB running locally or a MongoDB Atlas connection URI.
-
-1. Server Configuration & Setup
-
-Open a terminal and navigate to the SERVER folder:
-
-cd SERVER
-
-
-Install backend dependencies:
-
-npm install
-
-
-Configure environment variables:
-Create a .env file inside the SERVER/ directory with the following variables:
-
-PORT=5000
+    └── package.json            # Server scripts & dependencies
+⚙️ Getting StartedPrerequisitesNode.js (v16+ recommended)A running MongoDB instance (locally or via MongoDB Atlas)1. Backend Setup (/SERVER)Open your terminal and navigate to the server folder:Bashcd SERVER
+Install backend dependencies:Bashnpm install
+Create a .env file in the SERVER/ root directory:קטע קודPORT=5000
 MONGO_URI=mongodb://localhost:27017/task_management_db
 JWT_SECRET=your_super_secret_jwt_key
-
-
-(Optional) Seed initial admin user:
-
-node createAdmin.js
-
-
-Start the backend server:
-
-npm start
-# or with nodemon if configured:
-npm run dev
-
-
-The backend will be available at: http://localhost:5000
-⚙️ Getting Started
-
-Prerequisites
-
-Node.js (v16+ recommended)
-
-MongoDB running locally or a MongoDB Atlas connection URI.
-
-1. Server Configuration & Setup
-
-Open a terminal and navigate to the SERVER folder:
-
-cd SERVER
-
-
-Install backend dependencies:
-
-npm install
-
-
-Configure environment variables:
-Create a .env file inside the SERVER/ directory with the following variables:
-
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/task_management_db
-JWT_SECRET=your_super_secret_jwt_key
-
-
-(Optional) Seed initial admin user:
-
-node createAdmin.js
-
-
-Start the backend server:
-
-npm start
-# or with nodemon if configured:
-npm run dev
-
-
-The backend will be available at: http://localhost:5000
+(Optional) Seed an initial admin user:Bashnode createAdmin.js
+Start the backend server:Bashnpm start
+Server runs on: http://localhost:50002. Frontend Setup (/CLIENT)Open a new terminal tab and navigate to the client directory:Bashcd CLIENT
+Install frontend dependencies:Bashnpm install
+Start the Vite development server:Bashnpm run dev
+Client runs on: http://localhost:5173 (or the port specified by Vite)🔒 Roles & Access ControlRolePermissionsManagerFull system access: manage users, create/edit projects, and assign leads.Team LeadManage assigned projects, create tasks, and delegate tasks to team members.EmployeeView assigned tasks, update completion status, and track deadlines.📄 LicenseThis project is open-source and available under the MIT License.
